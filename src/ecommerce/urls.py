@@ -19,6 +19,7 @@ from django.urls import path
 from django.contrib import admin
 
 from .views import home_page, contact_page, login_page, register_page
+from products.urls import urlpatterns as product_urls
 
 urlpatterns = [
     path('', home_page),
@@ -26,7 +27,7 @@ urlpatterns = [
     path('login/', login_page),
     path('register/', register_page),
     path('admin/', admin.site.urls),
-]
+] + product_urls
 
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
