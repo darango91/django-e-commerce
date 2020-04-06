@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from .views import (
     ProductListView, ProductDetailView,
@@ -7,7 +7,7 @@ from .views import (
 
 urlpatterns = [
     path('products/', ProductListView.as_view()),
-    path('products/<int:pk>/', ProductDetailView.as_view()),
+    path('products/<slug:slug>/', ProductDetailView.as_view()),
     path('featured/', ProductFeaturedListView.as_view()),
     path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),
 ]
