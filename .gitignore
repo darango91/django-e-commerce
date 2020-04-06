@@ -132,4 +132,4 @@ dmypy.json
 .idea/
 
 # static files
-.static_cdn/
+static_cdn/

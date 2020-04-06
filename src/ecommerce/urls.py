@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 
 from .views import home_page, contact_page, login_page, register_page
-from products.urls import urlpatterns as product_urls
 
 urlpatterns = [
     path('', home_page),
@@ -27,7 +26,8 @@ urlpatterns = [
     path('login/', login_page),
     path('register/', register_page),
     path('admin/', admin.site.urls),
-] + product_urls
+    path('products/', include('products.urls'))
+]
 
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
