@@ -11,7 +11,7 @@
     <title>Base Template</title>
 </head>
 <body>
-{% include "base/nav_bar.html" %}
+{% include "base/nav_bar.html" with brand_name="eCommerce" %}
 {% block content %}{% endblock %}
 
 {% include "base/js.html" %}
