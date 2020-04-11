@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class ContactForm(forms.Form):
     fullname = forms.CharField(widget=forms.TextInput(
         attrs={
@@ -32,8 +33,12 @@ class ContactForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(widget=forms.EmailInput(
+        attrs={'class': 'col'}
+    ))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'col'}
+    ))
 
 
 class RegisterForm(forms.Form):
