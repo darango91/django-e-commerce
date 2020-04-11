@@ -26,7 +26,7 @@ urlpatterns = [
     path('login/', login_page),
     path('register/', register_page),
     path('admin/', admin.site.urls),
-    path('products/', include('products.urls'))
+    path('products/', include(('products.urls', 'products'), namespace='products'))
 ]
 
 if settings.DEBUG:
